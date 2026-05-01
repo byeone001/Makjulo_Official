@@ -60,11 +60,7 @@ export function Navigasi() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-xl">
-                M
-              </span>
-            </div>
+            <img src="/logo-makjulo.png" alt="Logo Makjulo" className="w-10 h-10 object-contain rounded-full bg-white/10" />
             <span className="font-serif text-xl font-bold text-foreground">
               Maklojo
             </span>

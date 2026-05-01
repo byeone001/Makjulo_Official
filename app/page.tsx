@@ -6,6 +6,7 @@ import { BagianProduk } from "@/components/bagian-produk";
 import { BagianKeunggulan } from "@/components/bagian-keunggulan";
 import { BagianTestimoni } from "@/components/bagian-testimoni";
 import { BagianKontak } from "@/components/bagian-kontak";
+import { BagianDeveloper } from "@/components/bagian-developer";
 import { BagianFooter } from "@/components/bagian-footer";
 
 export default function HalamanUtama() {
@@ -19,6 +20,7 @@ export default function HalamanUtama() {
       <BagianKeunggulan />
       <BagianTestimoni />
       <BagianKontak />
+      <BagianDeveloper />
       <BagianFooter />
     </main>
   );
