@@ -89,7 +89,7 @@ export function BagianTestimoni() {
             Apa Kata <span className="text-primary">Pelanggan Kami</span>
           </h2>
           <p className="text-muted-foreground text-lg text-pretty">
-            Ribuan pelanggan telah merasakan kelezatan Maklojo. Inilah cerita mereka.
+            Ribuan pelanggan telah merasakan kelezatan Makjulo. Inilah cerita mereka.
           </p>
         </motion.div>
 

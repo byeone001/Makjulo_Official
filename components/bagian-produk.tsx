@@ -148,10 +148,10 @@ export function BagianProduk() {
             Produk Kami
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-            Varian Rasa <span className="text-primary">Maklojo</span>
+            Varian Rasa <span className="text-primary">Makjulo</span>
           </h2>
           <p className="text-muted-foreground text-lg text-pretty">
-            Temukan berbagai varian rasa Maklojo yang dibuat dengan resep rahasia 
+            Temukan berbagai varian rasa Makjulo yang dibuat dengan resep rahasia 
             dan bahan-bahan berkualitas tinggi.
           </p>
         </motion.div>

@@ -62,7 +62,7 @@ export function Navigasi() {
           >
             <img src="/logo-makjulo.png" alt="Logo Makjulo" className="w-10 h-10 object-contain rounded-full bg-white/10" />
             <span className="font-serif text-xl font-bold text-foreground">
-              Maklojo
+              Makjulo
             </span>
           </motion.a>
 

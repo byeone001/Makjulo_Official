@@ -42,7 +42,7 @@ export function BagianFooter() {
         {/* Konten Utama Footer */}
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {/* Tentang Maklojo */}
+            {/* Tentang Makjulo */}
             <div className="lg:col-span-1">
               <motion.a
                 href="#beranda"
