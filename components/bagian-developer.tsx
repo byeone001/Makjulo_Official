@@ -11,16 +11,16 @@ const developers = [
   {
     nama: "Developer 2",
     peran: "Backend Developer",
-    foto: "/placeholder-user.jpg",
+    foto: "/PRATAMA DIKI.jpeg",
   },
   {
     nama: "Developer 3",
     peran: "UI/UX Designer",
-    foto: "/placeholder-user.jpg",
+    foto: "/WAFIQ.jpeg",
   },
 ];
 
-export function BagianDeveloper() {
+export function Developer() {
   return (
     <section id="developer" className="py-20 lg:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
