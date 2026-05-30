@@ -70,9 +70,8 @@ export function BagianBeranda() {
               transition={{ delay: 0.3 }}
               className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 text-balance"
             >
-              Nikmatnya{" "}
-              <span className="text-primary">Kulit Jeruk Pamelo</span> dalam
-              Setiap Gigitan
+              Camilan Sehat,{" "}
+              <span className="text-primary">Sahabat Bumi</span>
             </motion.h1>
 
             <motion.p
@@ -81,9 +80,8 @@ export function BagianBeranda() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 text-pretty"
             >
-              Makjulo mengubah kulit jeruk pamelo yang biasa terbuang menjadi
-              camilan lezat, sehat, dan ramah lingkungan. Rasakan cita rasa
-              autentik dengan sentuhan modern.
+              Inovasi camilan manisan kulit jeruk pamelo tanpa pengawet buatan 
+              yang manis, kenyal, dan menyegarkan.
             </motion.p>
 
             <motion.div
@@ -94,15 +92,15 @@ export function BagianBeranda() {
             >
               <Button
                 size="lg"
-                onClick={() => scrollKeSection("#produk")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+                onClick={() => window.open("https://wa.me/628194505565", "_blank")}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-semibold"
               >
-                Lihat Produk
+                💬 Order via WhatsApp
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => scrollKeSection("#tentang")}
+                onClick={() => scrollKeSection("#kisah-kami")}
                 className="border-primary text-primary hover:bg-primary/10"
               >
                 Pelajari Lebih Lanjut
@@ -202,7 +200,7 @@ export function BagianBeranda() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
           <motion.button
-            onClick={() => scrollKeSection("#tentang")}
+            onClick={() => scrollKeSection("#kisah-kami")}
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors"

@@ -120,18 +120,41 @@ export function BagianKontak() {
             {/* Media Sosial */}
             <div className="mt-8 pt-8 border-t border-border">
               <h4 className="font-semibold text-foreground mb-4">
+                Hubungi Kami Langsung
+              </h4>
+              <div className="flex flex-col gap-3">
+                <motion.a
+                  href="https://wa.me/628194505565"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors font-semibold"
+                >
+                  💬 Chat via WhatsApp
+                </motion.a>
+              </div>
+
+              {/* Social Links */}
+              <h4 className="font-semibold text-foreground mt-8 mb-4">
                 Ikuti Kami
               </h4>
               <div className="flex gap-3">
-                {["Instagram", "Facebook", "TikTok", "WhatsApp"].map((sosmed) => (
+                {[
+                  { name: "Instagram", link: "https://instagram.com/mak.julo", emoji: "📷" },
+                  { name: "TikTok", link: "https://tiktok.com/@makjulo", emoji: "🎵" },
+                ].map((sosmed) => (
                   <motion.a
-                    key={sosmed}
-                    href="#"
+                    key={sosmed.name}
+                    href={sosmed.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors text-lg"
+                    title={sosmed.name}
                   >
-                    <span className="text-sm font-bold">{sosmed[0]}</span>
+                    {sosmed.emoji}
                   </motion.a>
                 ))}
               </div>

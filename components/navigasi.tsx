@@ -8,11 +8,10 @@ import { Button } from "@/components/ui/button";
 // Daftar menu navigasi
 const daftarMenu = [
   { nama: "Beranda", tautan: "#beranda" },
+  { nama: "Kisah Kami", tautan: "#kisah-kami" },
   { nama: "Tentang", tautan: "#tentang" },
   { nama: "Produk", tautan: "#produk" },
   { nama: "Keunggulan", tautan: "#keunggulan" },
-  { nama: "Testimoni", tautan: "#testimoni" },
-  { nama: "Kontak", tautan: "#kontak" },
 ];
 
 export function Navigasi() {

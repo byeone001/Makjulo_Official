@@ -6,11 +6,10 @@ import { Heart } from "lucide-react";
 // Data tautan footer
 const tautanCepat = [
   { nama: "Beranda", tautan: "#beranda" },
-  { nama: "Tentang Kami", tautan: "#tentang" },
+  { nama: "Kisah Kami", tautan: "#kisah-kami" },
   { nama: "Produk", tautan: "#produk" },
   { nama: "Keunggulan", tautan: "#keunggulan" },
-  { nama: "Testimoni", tautan: "#testimoni" },
-  { nama: "Kontak", tautan: "#kontak" },
+  { nama: "Tentang", tautan: "#tentang" },
 ];
 
 const tautanLegal = [
@@ -20,10 +19,9 @@ const tautanLegal = [
 ];
 
 const mediaSosial = [
-  { nama: "Instagram", tautan: "#", inisial: "IG" },
-  { nama: "Facebook", tautan: "#", inisial: "FB" },
-  { nama: "TikTok", tautan: "#", inisial: "TT" },
-  { nama: "WhatsApp", tautan: "#", inisial: "WA" },
+  { nama: "Instagram", tautan: "https://instagram.com/mak.julo", inisial: "IG", icon: "📸" },
+  { nama: "TikTok", tautan: "https://tiktok.com/@makjulo", inisial: "TT", icon: "🎵" },
+  { nama: "WhatsApp", tautan: "https://wa.me/628194505565", inisial: "WA", icon: "💬" },
 ];
 
 export function BagianFooter() {
@@ -70,6 +68,8 @@ export function BagianFooter() {
                   <motion.a
                     key={sosmed.nama}
                     href={sosmed.tautan}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"

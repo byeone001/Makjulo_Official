@@ -13,7 +13,7 @@ const daftarProduk = [
     id: 1,
     nama: "Makjulo Original",
     deskripsi: "Rasa klasik dengan manis alami kulit jeruk pamelo yang gurih dan renyah.",
-    harga: "Rp 25.000",
+    harga: "Rp10.000",
     rating: 4.9,
     ulasan: 128,
     label: "Terlaris",
@@ -21,43 +21,36 @@ const daftarProduk = [
   },
   {
     id: 2,
-    nama: "Makjulo Pedas",
+    nama: "Makjulo Pedas-Manis",
     deskripsi: "Sensasi pedas yang menggugah selera dengan balutan rempah pilihan.",
-    harga: "Rp 28.000",
-    rating: 4.8,
-    ulasan: 95,
-    label: "Favorit",
+    harga: "Rp10.000",
+    rating: null,
+    ulasan: 0,
+    label: "Coming Soon",
     warna: "from-red-100 to-orange-100",
+    disabled: true,
   },
   {
     id: 3,
     nama: "Makjulo Cokelat",
     deskripsi: "Perpaduan manis cokelat premium dengan tekstur unik kulit pamelo.",
-    harga: "Rp 32.000",
-    rating: 4.9,
-    ulasan: 87,
-    label: "Baru",
+    harga: "Rp10.000",
+    rating: null,
+    ulasan: 0,
+    label: "Coming Soon",
     warna: "from-amber-100 to-yellow-100",
+    disabled: true,
   },
   {
     id: 4,
-    nama: "Makjulo Keju",
-    deskripsi: "Taburan keju gurih yang menyatu sempurna dengan kulit jeruk pamelo.",
-    harga: "Rp 30.000",
-    rating: 4.7,
-    ulasan: 76,
-    label: null,
-    warna: "from-yellow-100 to-amber-100",
-  },
-  {
-    id: 5,
-    nama: "Makjulo Madu",
-    deskripsi: "Manisnya madu asli hutan yang melapisi setiap potongan pamelo.",
-    harga: "Rp 35.000",
-    rating: 4.8,
-    ulasan: 64,
-    label: "Premium",
-    warna: "from-amber-100 to-yellow-50",
+    nama: "Makjulo Matcha",
+    deskripsi: "Rasa premium matcha yang dipadukan dengan kesegaran kulit jeruk pamelo.",
+    harga: "Rp10.000",
+    rating: null,
+    ulasan: 0,
+    label: "Coming Soon",
+    warna: "from-green-100 to-emerald-100",
+    disabled: true,
   },
 ];
 
@@ -73,11 +66,19 @@ function KartuProduk({ produk, index }: { produk: typeof daftarProduk[0]; index:
       viewport={{ once: true }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+      className={`group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ${
+        produk.disabled ? "opacity-75" : ""
+      }`}
     >
       {/* Label */}
       {produk.label && (
-        <Badge className="absolute top-4 left-4 z-10 bg-primary text-primary-foreground">
+        <Badge
+          className={`absolute top-4 left-4 z-10 ${
+            produk.disabled
+              ? "bg-accent text-accent-foreground"
+              : "bg-primary text-primary-foreground"
+          }`}
+        >
           {produk.label}
         </Badge>
       )}
@@ -85,14 +86,14 @@ function KartuProduk({ produk, index }: { produk: typeof daftarProduk[0]; index:
       {/* Gambar Produk */}
       <div className={`relative aspect-square bg-gradient-to-br ${produk.warna} p-8`}>
         <motion.div
-          animate={{ scale: hover ? 1.1 : 1, rotate: hover ? 5 : 0 }}
+          animate={{ scale: hover && !produk.disabled ? 1.1 : 1, rotate: hover && !produk.disabled ? 5 : 0 }}
           transition={{ duration: 0.3 }}
           className="w-full h-full flex items-center justify-center"
         >
           <div className="text-center">
             <span className="text-7xl block mb-2">🍊</span>
             <span className="text-sm font-medium text-foreground/60">
-              {produk.nama.split(" ")[1]}
+              {produk.nama.split(" ").slice(1).join(" ")}
             </span>
           </div>
         </motion.div>
@@ -100,13 +101,17 @@ function KartuProduk({ produk, index }: { produk: typeof daftarProduk[0]; index:
 
       {/* Info Produk */}
       <div className="p-5">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 fill-primary text-primary" />
-            <span className="text-sm font-medium text-foreground">{produk.rating}</span>
+        {!produk.disabled && produk.rating ? (
+          <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-1">
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <span className="text-sm font-medium text-foreground">{produk.rating}</span>
+            </div>
+            <span className="text-sm text-muted-foreground">({produk.ulasan} ulasan)</span>
           </div>
-          <span className="text-sm text-muted-foreground">({produk.ulasan} ulasan)</span>
-        </div>
+        ) : produk.disabled ? (
+          <div className="text-xs text-accent font-medium mb-2">Segera Hadir</div>
+        ) : null}
 
         <h3 className="font-serif text-xl font-bold text-foreground mb-2">
           {produk.nama}
@@ -120,9 +125,17 @@ function KartuProduk({ produk, index }: { produk: typeof daftarProduk[0]; index:
           <span className="font-serif text-xl font-bold text-primary">
             {produk.harga}
           </span>
-          <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button
+            size="sm"
+            disabled={produk.disabled}
+            className={`${
+              produk.disabled
+                ? "bg-muted text-muted-foreground cursor-not-allowed"
+                : "bg-primary hover:bg-primary/90 text-primary-foreground"
+            }`}
+          >
             <ShoppingBag className="w-4 h-4 mr-2" />
-            Beli
+            {produk.disabled ? "Tunggu" : "Beli"}
           </Button>
         </div>
       </div>

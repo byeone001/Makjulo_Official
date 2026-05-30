@@ -128,7 +128,243 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(135deg, 
+      hsl(85, 30%, 98%) 0%, 
+      hsl(35, 100%, 95%) 25%, 
+      hsl(215, 70%, 97%) 50%, 
+      hsl(35, 100%, 96%) 75%, 
+      hsl(85, 30%, 98%) 100%);
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Animated gradient background */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Decorative background elements */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(247, 148, 29, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(41, 171, 226, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(247, 148, 29, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 90% 10%, rgba(41, 171, 226, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Dark mode background */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: linear-gradient(135deg, 
+        hsl(250, 30%, 16%) 0%, 
+        hsl(35, 80%, 20%) 25%, 
+        hsl(215, 60%, 18%) 50%, 
+        hsl(35, 80%, 19%) 75%, 
+        hsl(250, 30%, 16%) 100%);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(247, 148, 29, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(41, 171, 226, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(247, 148, 29, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 10%, rgba(41, 171, 226, 0.08) 0%, transparent 50%);
+    }
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-md border border-black/10;
+  }
+
+  .gradient-primary-accent {
+    @apply bg-gradient-to-r from-primary via-primary to-accent;
+  }
+
+  /* Enhanced Background Patterns */
+  .bg-gradient-gentle {
+    background: linear-gradient(135deg, rgba(247, 148, 29, 0.03) 0%, rgba(41, 171, 226, 0.03) 100%);
+  }
+
+  .bg-gradient-featured {
+    background: linear-gradient(135deg, rgba(247, 148, 29, 0.05) 0%, rgba(41, 171, 226, 0.08) 50%, rgba(247, 148, 29, 0.04) 100%);
+  }
+
+  .bg-gradient-muted {
+    background: linear-gradient(135deg, rgba(247, 148, 29, 0.02) 0%, rgba(41, 171, 226, 0.02) 100%);
+  }
+
+  /* Decorative background sections */
+  .section-with-gradient {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-with-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(247, 148, 29, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(41, 171, 226, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-with-gradient > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Animated gradient */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Hero section gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      hsla(35, 100%, 95%, 1) 0%,
+      hsla(215, 70%, 97%, 0.5) 50%,
+      hsla(35, 100%, 96%, 1) 100%);
+  }
+
+  .dark .hero-gradient {
+    background: linear-gradient(135deg, 
+      hsla(250, 30%, 18%, 1) 0%,
+      hsla(215, 60%, 20%, 0.5) 50%,
+      hsla(35, 80%, 22%, 1) 100%);
+  }
+
+  /* Card hover effect with gradient */
+  .card-gradient-hover {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .card-gradient-hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(247, 148, 29, 0.1), rgba(41, 171, 226, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .card-gradient-hover:hover::after {
+    opacity: 1;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #F7941D 0%, #29ABE2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Floating animation */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Glow animation */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(247, 148, 29, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(247, 148, 29, 0.6);
+    }
+  }
+
+  /* Pulse animation */
+  .animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  /* Shine animation for cards */
+  .animate-shine {
+    animation: shine 8s infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  /* Gradient border animation */
+  .gradient-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #F7941D, #29ABE2) border-box;
+  }
+
+  .dark .gradient-border {
+    background: linear-gradient(#1f2937, #1f2937) padding-box,
+                linear-gradient(135deg, #F7941D, #29ABE2) border-box;
   }
 }
