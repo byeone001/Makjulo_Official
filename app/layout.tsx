@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Fredoka, Nunito } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const playfair = Playfair_Display({ 
+const fredoka = Fredoka({ 
   subsets: ["latin"],
-  variable: '--font-playfair',
+  variable: '--font-heading',
   display: 'swap',
 });
 
-const inter = Inter({ 
+const nunito = Nunito({ 
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-body',
   display: 'swap',
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id" className={`${playfair.variable} ${inter.variable} bg-background`}>
+    <html lang="id" className={`${fredoka.variable} ${nunito.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

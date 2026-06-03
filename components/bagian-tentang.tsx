@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import { Heart, Recycle, Sparkles } from "lucide-react";
 
@@ -42,19 +43,17 @@ export function BagianTentang() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-8xl mb-4">🍊</div>
-                  <p className="font-serif text-xl text-foreground font-medium">
-                    Dari Kulit Jadi Kuliner
-                  </p>
-                </div>
-              </div>
-
-              {/* Dekorasi */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-primary/20 rounded-full blur-xl" />
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-accent/20 rounded-full blur-xl" />
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg">
+              <Image 
+                src="/Flayyerr.png" 
+                alt="Tentang Makjulo" 
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700" 
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              
+              {/* Overlay gradient untuk transisi halus di ujung */}
+              <div className="absolute inset-0 bg-black/5" />
             </div>
 
             {/* Badge */}

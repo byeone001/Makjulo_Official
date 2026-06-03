@@ -124,7 +124,7 @@ export function BagianKontak() {
               </h4>
               <div className="flex flex-col gap-3">
                 <motion.a
-                  href="https://wa.me/628194505565"
+                  href="https://wa.me/6281945055565"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}

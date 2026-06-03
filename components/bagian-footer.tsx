@@ -21,7 +21,7 @@ const tautanLegal = [
 const mediaSosial = [
   { nama: "Instagram", tautan: "https://instagram.com/mak.julo", inisial: "IG", icon: "📸" },
   { nama: "TikTok", tautan: "https://tiktok.com/@makjulo", inisial: "TT", icon: "🎵" },
-  { nama: "WhatsApp", tautan: "https://wa.me/628194505565", inisial: "WA", icon: "💬" },
+  { nama: "WhatsApp", tautan: "https://wa.me/6281945055565", inisial: "WA", icon: "💬" },
 ];
 
 export function BagianFooter() {

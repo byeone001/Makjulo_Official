@@ -69,7 +69,7 @@ export function BagianPromo() {
           >
             <Button
               size="lg"
-              onClick={() => window.open("https://wa.me/628194505565", "_blank")}
+              onClick={() => window.open("https://wa.me/6281945055565", "_blank")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-semibold"
             >
               <ShoppingBag className="w-5 h-5 mr-2" />

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { Star, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,7 @@ const daftarProduk = [
     ulasan: 128,
     label: "Terlaris",
     warna: "from-amber-100 to-orange-100",
+    gambar: "/Makjulo Original.png",
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ const daftarProduk = [
     label: "Coming Soon",
     warna: "from-red-100 to-orange-100",
     disabled: true,
+    gambar: "/Makjulo Pedas Manis.png",
   },
   {
     id: 3,
@@ -40,6 +43,7 @@ const daftarProduk = [
     label: "Coming Soon",
     warna: "from-amber-100 to-yellow-100",
     disabled: true,
+    gambar: "/Makjulo Coklat.png",
   },
   {
     id: 4,
@@ -51,6 +55,7 @@ const daftarProduk = [
     label: "Coming Soon",
     warna: "from-green-100 to-emerald-100",
     disabled: true,
+    gambar: "/Makjulo Matcha.png",
   },
 ];
 
@@ -66,36 +71,37 @@ function KartuProduk({ produk, index }: { produk: typeof daftarProduk[0]; index:
       viewport={{ once: true }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className={`group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ${
-        produk.disabled ? "opacity-75" : ""
-      }`}
+      className={`group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ${produk.disabled ? "opacity-75" : ""
+        }`}
     >
       {/* Label */}
       {produk.label && (
         <Badge
-          className={`absolute top-4 left-4 z-10 ${
-            produk.disabled
+          className={`absolute top-4 left-4 z-10 ${produk.disabled
               ? "bg-accent text-accent-foreground"
               : "bg-primary text-primary-foreground"
-          }`}
+            }`}
         >
           {produk.label}
         </Badge>
       )}
 
       {/* Gambar Produk */}
-      <div className={`relative aspect-square bg-gradient-to-br ${produk.warna} p-8`}>
+      <div className={`relative aspect-square overflow-hidden bg-gradient-to-br ${produk.warna}`}>
         <motion.div
-          animate={{ scale: hover && !produk.disabled ? 1.1 : 1, rotate: hover && !produk.disabled ? 5 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="w-full h-full flex items-center justify-center"
+          animate={{ scale: hover && !produk.disabled ? 1.05 : 1 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="w-full h-full relative"
         >
-          <div className="text-center">
-            <span className="text-7xl block mb-2">🍊</span>
-            <span className="text-sm font-medium text-foreground/60">
-              {produk.nama.split(" ").slice(1).join(" ")}
-            </span>
-          </div>
+          <Image 
+            src={produk.gambar} 
+            alt={produk.nama} 
+            fill
+            className="object-cover drop-shadow-sm transition-all duration-500" 
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          {/* Overlay gradient tipis agar lebih mewah */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </motion.div>
       </div>
 
@@ -128,11 +134,10 @@ function KartuProduk({ produk, index }: { produk: typeof daftarProduk[0]; index:
           <Button
             size="sm"
             disabled={produk.disabled}
-            className={`${
-              produk.disabled
+            className={`${produk.disabled
                 ? "bg-muted text-muted-foreground cursor-not-allowed"
                 : "bg-primary hover:bg-primary/90 text-primary-foreground"
-            }`}
+              }`}
           >
             <ShoppingBag className="w-4 h-4 mr-2" />
             {produk.disabled ? "Tunggu" : "Beli"}
@@ -164,7 +169,7 @@ export function BagianProduk() {
             Varian Rasa <span className="text-primary">Makjulo</span>
           </h2>
           <p className="text-muted-foreground text-lg text-pretty">
-            Temukan berbagai varian rasa Makjulo yang dibuat dengan resep rahasia 
+            Temukan berbagai varian rasa Makjulo yang dibuat dengan resep rahasia
             dan bahan-bahan berkualitas tinggi.
           </p>
         </motion.div>
